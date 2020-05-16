@@ -1,0 +1,15 @@
+This project connects to 'circe' database in the local postgres server.
+
+Create this table to run the tests
+
+-- DROP TABLE jokes.jokes;
+
+CREATE TABLE jokes.jokes (
+	id int4 NOT NULL GENERATED ALWAYS AS IDENTITY,
+	joke varchar NOT NULL
+);
+
+Then insert this row.
+
+INSERT INTO jokes.jokes (joke)
+	VALUES ('R.I.P. boiled water. You will be mist.');
