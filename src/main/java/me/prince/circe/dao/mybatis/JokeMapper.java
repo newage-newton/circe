@@ -1,4 +1,4 @@
-package me.prince.circe.mybatis;
+package me.prince.circe.dao.mybatis;
 
 import java.util.List;
 

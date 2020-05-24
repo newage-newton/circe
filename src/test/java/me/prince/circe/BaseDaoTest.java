@@ -1,5 +1,6 @@
 package me.prince.circe;
 
+import me.prince.circe.config.DaoConfig;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;

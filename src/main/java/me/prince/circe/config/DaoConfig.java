@@ -1,8 +1,10 @@
-package me.prince.circe;
+package me.prince.circe.config;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
-import me.prince.circe.mybatis.JokeMapper;
+import me.prince.circe.dao.mybatis.JokeMapper;
+import me.prince.circe.dao.mybatis.StockPriceMapper;
+import me.prince.circe.domain.StockPrice;
 import org.apache.ibatis.mapping.Environment;
 import org.apache.ibatis.session.Configuration;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -17,7 +19,7 @@ import org.springframework.transaction.TransactionManager;
 import javax.sql.DataSource;
 
 @org.springframework.context.annotation.Configuration
-@ComponentScan
+@ComponentScan(basePackages = "me.prince.circe.dao")
 public class DaoConfig {
 
     @Bean
@@ -40,7 +42,9 @@ public class DaoConfig {
         Configuration configuration = new Configuration(environment);
         configuration.setMapUnderscoreToCamelCase(true);
         configuration.addMapper(JokeMapper.class);
+        configuration.addMapper(StockPriceMapper.class);
         configuration.getTypeAliasRegistry().registerAlias("JokeMapper", JokeMapper.class);
+        configuration.getTypeAliasRegistry().registerAlias("StockPriceMapper", StockPriceMapper.class);
         SqlSessionFactoryBuilder sqlSessionFactoryBuilder = new SqlSessionFactoryBuilder();
         return sqlSessionFactoryBuilder.build(configuration);
     }

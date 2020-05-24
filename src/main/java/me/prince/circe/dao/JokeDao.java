@@ -1,4 +1,4 @@
-package me.prince.circe;
+package me.prince.circe.dao;
 
 import java.util.List;
 

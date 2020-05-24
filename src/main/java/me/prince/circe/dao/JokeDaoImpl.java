@@ -1,4 +1,4 @@
-package me.prince.circe;
+package me.prince.circe.dao;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
@@ -11,7 +11,7 @@ public class JokeDaoImpl extends BaseDao implements JokeDao {
     @Inject
     private SqlSessionTemplate sqlSessionTemplate;
 
-    JokeDaoImpl(SqlSessionTemplate sqlSessionTemplate) {
+    public JokeDaoImpl(SqlSessionTemplate sqlSessionTemplate) {
         super(sqlSessionTemplate);
     }
 
