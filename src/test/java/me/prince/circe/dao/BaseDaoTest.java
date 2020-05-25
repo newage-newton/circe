@@ -1,4 +1,4 @@
-package me.prince.circe;
+package me.prince.circe.dao;
 
 import me.prince.circe.config.DaoConfig;
 import org.junit.jupiter.api.extension.ExtendWith;

@@ -1,0 +1,22 @@
+{
+  "namespace": "me.prince.circe.domain",
+  "type": "record",
+  "name": "StockPrice",
+  "fields": [
+    {
+      "name": "stockSymbol",
+      "type": "string"
+    },
+    {
+      "name": "price",
+      "type": "double"
+    },
+    {
+      "name": "date",
+      "type": {
+        "type": "int",
+        "logicalType": "date"
+      }
+    }
+  ]
+}

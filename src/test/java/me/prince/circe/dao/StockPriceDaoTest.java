@@ -1,6 +1,5 @@
-package me.prince.circe;
+package me.prince.circe.dao;
 
-import me.prince.circe.dao.StockPriceDao;
 import me.prince.circe.domain.StockPrice;
 import org.junit.jupiter.api.Test;
 

@@ -2,7 +2,6 @@ package me.prince.circe.config;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
-import me.prince.circe.dao.mybatis.JokeMapper;
 import me.prince.circe.dao.mybatis.StockPriceMapper;
 import me.prince.circe.domain.StockPrice;
 import org.apache.ibatis.mapping.Environment;
@@ -41,10 +40,14 @@ public class DaoConfig {
         Environment environment = new Environment("development", new SpringManagedTransactionFactory(), hikariDatasource());
         Configuration configuration = new Configuration(environment);
         configuration.setMapUnderscoreToCamelCase(true);
-        configuration.addMapper(JokeMapper.class);
-        configuration.addMapper(StockPriceMapper.class);
-        configuration.getTypeAliasRegistry().registerAlias("JokeMapper", JokeMapper.class);
+
+        // Type aliases
         configuration.getTypeAliasRegistry().registerAlias("StockPriceMapper", StockPriceMapper.class);
+        configuration.getTypeAliasRegistry().registerAlias("StockPrice", StockPrice.class);
+
+        // Mappers
+        configuration.addMapper(StockPriceMapper.class);
+
         SqlSessionFactoryBuilder sqlSessionFactoryBuilder = new SqlSessionFactoryBuilder();
         return sqlSessionFactoryBuilder.build(configuration);
     }

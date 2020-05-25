@@ -3,11 +3,11 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="me.prince.circe.dao.mybatis.StockPriceMapper">
-    <insert id="insertStockPrice" parameterType="me.prince.circe.domain.StockPrice">
+    <insert id="insertStockPrice" parameterType="StockPrice">
         INSERT INTO reader.stock_price(stock_symbol, date, price)
         VALUES (#{stockSymbol}, '${date}', #{price})
     </insert>
-    <select id="selectStockPrice" resultType="me.prince.circe.domain.StockPrice" parameterType="java.util.Map">
+    <select id="selectStockPrice" resultType="StockPrice" parameterType="java.util.Map">
         SELECT stock_symbol, date, price
         FROM reader.stock_price
         WHERE
@@ -15,7 +15,7 @@
         AND date = '${date}'
     </select>
 
-    <select id="selectAllStockPrice" resultType="me.prince.circe.domain.StockPrice">
+    <select id="selectAllStockPrice" resultType="StockPrice">
         SELECT stock_symbol, date, price
         FROM reader.stock_price
     </select>
